@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf8f5;
+  --warm-brown: #6b4f3a;
+  --sage: #8a9e8a;
+  --blush: #e8d5cb;
+  --charcoal: #2c2c2c;
+}
+
+body {
+  background-color: var(--cream);
+  color: var(--charcoal);
+}
+
+/* Opt-in form */
+.opt-in-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 420px;
+  width: 100%;
+}
+
+.opt-in-form input[type='text'],
+.opt-in-form input[type='email'] {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #d4c5b8;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.opt-in-form input:focus {
+  border-color: var(--warm-brown);
+}
+
+.submit-btn {
+  background-color: var(--warm-brown);
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  width: 100%;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #5a3f2d;
+  transform: translateY(-1px);
+}
+
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: #666;
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.consent-label input[type='checkbox'] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--warm-brown);
+}
+
+.consent-text {
+  font-size: 0.75rem;
+  color: #888;
+  text-align: center;
+}
+
+.consent-text a {
+  color: var(--warm-brown);
+  text-decoration: underline;
+}
+
+.form-error {
+  font-size: 0.85rem;
+  color: #c0392b;
+  padding: 0.5rem;
+  background: #fdf0ef;
+  border-radius: 4px;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
