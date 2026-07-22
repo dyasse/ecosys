@@ -1,1 +1,0 @@
-export default function Page(){return <><p className="eyebrow">Store management</p><h1 className="serif text-4xl">Inventory</h1><div className="card mt-8 p-10 text-center"><h2 className="serif text-2xl">Ready for live data</h2><p className="mt-2 text-gray-600">Connect Supabase to manage inventory from this secure dashboard.</p></div></>}
