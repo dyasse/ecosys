@@ -1,37 +1,26 @@
-# AI-Powered Digital Product Ecosystem
+# Azianline
 
-**Brand:** Premium Crochet, Knitting & Planner Digital Products  
-**Goal:** Build a self-improving, legal, conversion-focused online business  
-**Stack:** Next.js · Supabase · Brevo · n8n · GA4 · Claude + ChatGPT
+Premium cosmetics storefront and administration built with Next.js App Router, TypeScript, Tailwind and a Supabase-ready commerce schema.
 
----
+## Run locally
 
-## Quick Navigation
+1. Copy `.env.example` to `.env.local` and set the public Supabase values.
+2. Install dependencies with `npm install`.
+3. Run `npm run dev`.
+4. Apply `supabase/migrations/0001_azianline.sql` to a new Supabase project before enabling commerce writes.
 
-| Document | Description |
-|---|---|
-| [docs/01-executive-summary.md](docs/01-executive-summary.md) | Full system overview |
-| [docs/02-system-architecture.md](docs/02-system-architecture.md) | Architecture diagram and stack decisions |
-| [docs/03-agent-map.md](docs/03-agent-map.md) | All 10 AI agents with prompts |
-| [docs/04-website-blueprint.md](docs/04-website-blueprint.md) | Every page: copy, SEO, CTAs |
-| [docs/05-lead-magnet-strategy.md](docs/05-lead-magnet-strategy.md) | 10 lead magnets + MVP system |
-| [docs/06-email-automation.md](docs/06-email-automation.md) | 5-email welcome sequence |
-| [docs/07-social-content-engine.md](docs/07-social-content-engine.md) | Pinterest, Instagram, TikTok, Facebook |
-| [docs/08-seo-engine.md](docs/08-seo-engine.md) | 20 blog ideas + full strategy |
-| [docs/09-automation-workflows.md](docs/09-automation-workflows.md) | n8n/Make.com workflows |
-| [docs/10-database-structure.md](docs/10-database-structure.md) | All tables + example rows |
-| [docs/11-analytics-dashboard.md](docs/11-analytics-dashboard.md) | KPIs, reviews, benchmarks |
-| [docs/12-mvp-7day-plan.md](docs/12-mvp-7day-plan.md) | Day-by-day launch plan |
-| [docs/13-agent-prompts.md](docs/13-agent-prompts.md) | Copy-paste prompts for every agent |
-| [docs/14-beginner-checklist.md](docs/14-beginner-checklist.md) | Step-by-step setup checklist |
-| [docs/15-next-actions.md](docs/15-next-actions.md) | Prioritized next steps |
+## Production requirements
 
----
+- Supabase project: configure Auth redirect URLs, storage buckets, RLS policies and server-only service-role key.
+- Stripe: set the secret/webhook/publishable keys and implement the provider session creation in `app/api/checkout/route.ts`.
+- Email: configure a transactional provider and sender domain.
+- Replace the supplied remote sample images with licensed assets in Supabase Storage.
+- Review legal, tax, shipping and refund policies for the target market.
 
-## Legal Commitments Built Into This System
+## Security model
 
-- Email collected **only** via opt-in forms with clear consent language
-- Every email includes a one-click **unsubscribe** link
-- Privacy Policy and Terms pages are **required** before launch
-- No scraping, no cold email, no purchased lists — ever
-- GDPR + CAN-SPAM compliant by design
+The migration establishes UUID keys, relational constraints, stock checks, RLS ownership policies and separate roles. All order totals must be recomputed server-side from database prices; the current route demonstrates validation only until Supabase and Stripe credentials are configured.
+
+## Validation
+
+`npm run typecheck`, `npm run lint`, `npm run test`, `npm run build`
