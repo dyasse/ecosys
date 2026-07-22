@@ -1,1 +1,0 @@
-import {NextResponse} from 'next/server';import {contactSchema} from '@/lib/validation';export async function POST(req:Request){const parsed=contactSchema.safeParse(await req.json());if(!parsed.success)return NextResponse.json({error:'Please check your message.'},{status:400});return NextResponse.json({ok:true},{status:201})}

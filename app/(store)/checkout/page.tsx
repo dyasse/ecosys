@@ -1,1 +1,0 @@
-export default function Checkout(){return <main className="shell max-w-3xl py-12"><p className="eyebrow">Secure checkout</p><h1 className="serif text-5xl">Your details</h1><div className="card mt-8 p-6"><p className="text-gray-600">Your bag is empty. Add a product before checkout.</p></div></main>}
